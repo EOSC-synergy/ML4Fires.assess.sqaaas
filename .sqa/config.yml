@@ -1,0 +1,42 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/CMCC-Foundation/ML4Fires:
+      branch: main
+      repo: https://github.com/CMCC-Foundation/ML4Fires
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/2.0.0
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/CMCC-Foundation/ML4Fires git:
+        commands:
+        - /usr/bin/env sh .sqa/script.beady-ruby-chin.sh
+        container: qc.acc_zippy-aqua-discus
+  QC.Doc:
+    repos:
+      github.com/CMCC-Foundation/ML4Fires find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.muggy-tan-jellyfish.sh
+        container: qc.doc_wheezy-fuchsia-quokka
+      github.com/CMCC-Foundation/ML4Fires git:
+        commands:
+        - /usr/bin/env sh .sqa/script.paltry-myrtle-dragon.sh
+        container: qc.doc_baggy-pink-robin
+  QC.Lic:
+    repos:
+      github.com/CMCC-Foundation/ML4Fires licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.slimy-chartreuse-budgerigar.sh
+        container: qc.lic_stealthy-white-dalmatian
+  QC.Ver:
+    repos:
+      github.com/CMCC-Foundation/ML4Fires get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.skinny-goldenrod-bombay.sh
+        container: qc.ver_slaphappy-buff-zorse
+timeout: 5400
