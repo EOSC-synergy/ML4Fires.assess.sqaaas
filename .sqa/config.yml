@@ -5,7 +5,7 @@ config:
       branch: main
       repo: https://github.com/CMCC-Foundation/ML4Fires
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: release/2.0.0
+      branch: main
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
 environment:
   JPL_DOCKERFORCEBUILD: enabled
@@ -15,28 +15,50 @@ sqa_criteria:
     repos:
       github.com/CMCC-Foundation/ML4Fires git:
         commands:
-        - /usr/bin/env sh .sqa/script.beady-ruby-chin.sh
-        container: qc.acc_zippy-aqua-discus
+        - /usr/bin/env sh .sqa/script.thirsty-wisteria-shark.sh
+        container: qc.acc_muzzy-chocolate-kudu
   QC.Doc:
     repos:
       github.com/CMCC-Foundation/ML4Fires find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.muggy-tan-jellyfish.sh
-        container: qc.doc_wheezy-fuchsia-quokka
+        - /usr/bin/env sh .sqa/script.thirsty-cobalt-giraffe.sh
+        container: qc.doc_gloppy-aquamarine-sparrow
       github.com/CMCC-Foundation/ML4Fires git:
         commands:
-        - /usr/bin/env sh .sqa/script.paltry-myrtle-dragon.sh
-        container: qc.doc_baggy-pink-robin
+        - /usr/bin/env sh .sqa/script.gloppy-taupe-mayfly.sh
+        container: qc.doc_geeky-myrtle-spoonbill
+      github.com/CMCC-Foundation/ML4Fires markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.hasty-green-birman.sh
+        container: qc.doc_frumpy-dandelion-caracal
   QC.Lic:
     repos:
       github.com/CMCC-Foundation/ML4Fires licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.slimy-chartreuse-budgerigar.sh
-        container: qc.lic_stealthy-white-dalmatian
+        - /usr/bin/env sh .sqa/script.breezy-pear-squirrel.sh
+        container: qc.lic_sleazy-cerise-liger
+  QC.Sec:
+    repos:
+      github.com/CMCC-Foundation/ML4Fires bandit:
+        commands:
+        - /usr/bin/env sh .sqa/script.chummy-ultramarine-uakari.sh
+        container: qc.sec_leaky-viridian-toad
+  QC.Sty:
+    repos:
+      github.com/CMCC-Foundation/ML4Fires flake8:
+        commands:
+        - /usr/bin/env sh .sqa/script.slaphappy-sapphire-wasp.sh
+        container: qc.sty_shabby-beige-serval
+  QC.Uni:
+    repos:
+      github.com/CMCC-Foundation/ML4Fires pytest:
+        commands:
+        - /usr/bin/env sh .sqa/script.ready-wheat-labradoodle.sh
+        container: qc.uni_crabby-champagne-robin
   QC.Ver:
     repos:
       github.com/CMCC-Foundation/ML4Fires get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.skinny-goldenrod-bombay.sh
-        container: qc.ver_slaphappy-buff-zorse
+        - /usr/bin/env sh .sqa/script.snappy-persimmon-wombat.sh
+        container: qc.ver_crabby-pumpkin-rhinoceros
 timeout: 5400
